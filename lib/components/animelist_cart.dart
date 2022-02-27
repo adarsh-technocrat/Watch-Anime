@@ -17,26 +17,9 @@ class _AnimeListCardState extends State<AnimeListCard> {
       child: Padding(
         padding: const EdgeInsets.only(top: 30),
         child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: 10,
-          itemBuilder: (context, index) => Padding(
-            padding: const EdgeInsets.only(right: 15),
-            child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  selectedIndex = index;
-                });
-              },
-              child: SizedBox(
-                width: 200,
-                child: Image.network(
-                  "https://i1.wp.com/chia-anime.su/wp-content/uploads/2020/11/Jujutsu-Kaisen-TV.jpg",
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-          ),
-        ),
+            scrollDirection: Axis.horizontal,
+            itemCount: 10,
+            itemBuilder: (context, index) => Container()),
       ),
     );
   }
