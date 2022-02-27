@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../../components/navbar_element.dart';
 
 class NavBar extends StatefulWidget {
+  const NavBar({Key? key}) : super(key: key);
+
   @override
   State<NavBar> createState() => _NavBarState();
 }
@@ -57,7 +59,6 @@ class _NavBarState extends State<NavBar> {
               ),
             ),
           ),
-          Expanded(child: Container()),
         ],
       ),
     );

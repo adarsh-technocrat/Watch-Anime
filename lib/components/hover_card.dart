@@ -17,6 +17,7 @@ class _HoverCardState extends State<HoverCard> {
   @override
   Widget build(BuildContext context) {
     return MouseRegion(
+      cursor: MouseCursor.uncontrolled,
       onEnter: (event) {
         onEnter(true);
       },
