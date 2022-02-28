@@ -45,6 +45,10 @@ dependencies:
   just_audio: ^0.9.20
   rive: ^0.8.1
   just_audio_libwinmedia: ^0.0.4
+  blur: ^3.0.0
+  palette_generator: ^0.3.3
+  shimmer: ^2.0.0
+  flutter_rating_bar: ^4.0.0
 
 dev_dependencies:
   flutter_test:

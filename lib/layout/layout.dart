@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:watch_anime/bloc/landing_page_cubit.dart';
 import 'package:watch_anime/bloc/landing_page_state.dart';
+import 'package:watch_anime/components/custom_window_appbar.dart';
 import 'package:watch_anime/components/pageNavbar/help_and_support_navbar.dart';
 import 'package:watch_anime/components/pageNavbar/search_navbar.dart';
 import 'package:watch_anime/components/pageNavbar/setting_navbar.dart';
@@ -15,9 +16,6 @@ class Layout extends StatelessWidget {
   final Widget? child;
 
   const Layout({Key? key, this.child}) : super(key: key);
-
-  static WindowButtonColors colors =
-      WindowButtonColors(iconNormal: Colors.white);
 
   static List<Widget> pageNavbarElement = [
     Container(),
@@ -36,46 +34,9 @@ class Layout extends StatelessWidget {
             color: Constants.kBlackColor,
             child: Column(
               children: [
-                // app bar
-                Expanded(
-                  child: Container(
-                    height: 30,
-                    decoration: const BoxDecoration(
-                        color: Constants.kBlackColor,
-                        border: Border(bottom: BorderSide.none)),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: MoveWindow(
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: const [
-                                SizedBox(
-                                  width: 14.0,
-                                ),
-                                Text(
-                                  'Watch Anime',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 12.0,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        MinimizeWindowButton(
-                          colors: colors,
-                        ),
-                        MaximizeWindowButton(
-                          colors: colors,
-                        ),
-                        CloseWindowButton(
-                          colors: colors,
-                        ),
-                      ],
-                    ),
-                  ),
+                // window app bar
+                const Expanded(
+                  child: CustomWindowAppBar(),
                 ),
                 Expanded(
                   flex: 20,

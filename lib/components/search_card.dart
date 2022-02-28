@@ -1,6 +1,8 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:watch_anime/components/hover_card.dart';
+import 'package:watch_anime/pages/AnimeDetailsSection/anime_details_section.dart';
+import 'package:watch_anime/utils/Navigator/custom_navigator.dart';
 import '../model/search_data_model.dart';
 
 class SearchCard extends StatelessWidget {
@@ -21,7 +23,13 @@ class SearchCard extends StatelessWidget {
               padding: const EdgeInsets.all(10),
               child: HoverCard(
                 child: InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    CustomNavigator().customNavigator(
+                        context,
+                        AnimeDetailSection(
+                          data: data![index],
+                        ));
+                  },
                   child: Container(
                     width: 200,
                     decoration: BoxDecoration(
@@ -31,9 +39,12 @@ class SearchCard extends StatelessWidget {
                       children: [
                         SizedBox(
                           height: 300,
-                          child: Image.network(
-                            data?[index].animeImage ?? "",
-                            fit: BoxFit.cover,
+                          child: Hero(
+                            tag: data![index].animeImage.toString(),
+                            child: Image.network(
+                              data?[index].animeImage ?? "",
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
                         Padding(
