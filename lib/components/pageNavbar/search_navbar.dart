@@ -43,7 +43,7 @@ class SearchNavbar extends StatelessWidget {
                       hintStyle: TextStyle(color: Colors.grey),
                     ),
                     onChanged: (String newSearch) {
-                      provider.onSearchChange(newSearch);
+                      provider.onSearchChange(newSearch, state.searchedQuery);
                     },
                   ),
                 ),

@@ -18,12 +18,14 @@ class SearchPageCubit extends Cubit<SearchPageState> {
 
   Timer? _debouncing;
 
-  onSearchChange(String newSearch) {
+  onSearchChange(String newSearch, String oldSearch) {
     if (_debouncing?.isActive ?? false) _debouncing?.cancel();
     _debouncing = Timer(const Duration(milliseconds: 500), () {
-      getSearchQueryData(newSearch.toString());
+      if (newSearch != oldSearch) {
+        getSearchQueryData(newSearch.toString());
+        emit(state.copyWith(searchedQuery: newSearch));
+      }
     });
-    emit(state.copyWith(searchedQuery: newSearch));
   }
 
   Future<SearchDataModel> getSearchQueryData(String query) async {

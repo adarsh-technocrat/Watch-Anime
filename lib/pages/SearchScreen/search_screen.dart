@@ -16,13 +16,6 @@ class SearchScreen extends StatefulWidget {
 
 class _SearchScreenState extends State<SearchScreen> {
   @override
-  void dispose() {
-    final provider = BlocProvider.of<SearchPageCubit>(context);
-    provider.disposeDebouncing();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return BlocBuilder<SearchPageCubit, SearchPageState>(
       builder: (context, state) {
