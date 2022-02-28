@@ -2,17 +2,18 @@ import 'dart:convert';
 import 'dart:developer';
 import 'package:http/http.dart' as http;
 import 'package:watch_anime/constants/constants.dart';
+import 'package:watch_anime/model/anime_details_model.dart';
 import 'package:watch_anime/model/search_data_model.dart';
 
-class SearchService {
+class AnimeDetailsService {
   final String baseUrl = Constants.baseUrl;
 
-  Future<SearchDataModel> getSearchData(String query) async {
+  Future<AnimeDetailsModel> getNameDetails(String slug) async {
     dynamic data;
 
     try {
       var response = await http.Client().get(
-        Uri.parse("$baseUrl/search?searchQuery=$query"),
+        Uri.parse("$baseUrl/details/$slug"),
       );
 
       var jsonResponse = json.decode(response.body);
