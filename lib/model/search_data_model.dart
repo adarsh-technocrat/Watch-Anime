@@ -51,6 +51,7 @@ class Anime {
   String? animeEpisodes;
   String? animeSub;
   String? animeLink;
+  String? animeSlug;
 
   Anime(
       {this.animeImage,
@@ -60,7 +61,8 @@ class Anime {
       this.animeType,
       this.animeEpisodes,
       this.animeSub,
-      this.animeLink});
+      this.animeLink,
+      this.animeSlug});
 
   Anime.fromJson(Map<String, dynamic> json) {
     animeImage = json['anime_image'];
@@ -71,6 +73,7 @@ class Anime {
     animeEpisodes = json['anime_episodes'];
     animeSub = json['anime_sub'];
     animeLink = json['anime_link'];
+    animeSlug = json['anime_slug'];
   }
 
   Map<String, dynamic> toJson() {
@@ -83,6 +86,7 @@ class Anime {
     data['anime_episodes'] = animeEpisodes;
     data['anime_sub'] = animeSub;
     data['anime_link'] = animeLink;
+    data['anime_slug'] = animeSlug;
     return data;
   }
 }
