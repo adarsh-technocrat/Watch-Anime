@@ -1,14 +1,15 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:watch_anime/bloc/anime_cubit.dart';
 import 'package:watch_anime/bloc/anime_state.dart';
 import 'package:watch_anime/components/hover_card.dart';
+import 'package:watch_anime/components/video_episode_card.dart';
 import 'package:watch_anime/constants/constants.dart';
+import 'package:watch_anime/pages/VideoStreamScreen/video_stream_screen.dart';
+import 'package:watch_anime/utils/Navigator/custom_navigator.dart';
 import '../../model/search_data_model.dart';
-import 'package:watch_anime/model/anime_details_model.dart';
 
 class AnimeDetailSection extends StatefulWidget {
   final Anime? data;
@@ -173,44 +174,19 @@ class _AnimeDetailSectionState extends State<AnimeDetailSection> {
                       children: List.generate(
                         detailData?.episodeId!.length ?? 0,
                         (index) => HoverCard(
-                          child: InkWell(
-                            onTap: () {},
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.only(right: 20, bottom: 20),
-                              child: Container(
-                                height: 120,
-                                width: 200,
-                                decoration: BoxDecoration(
-                                    color: state.color.color.withOpacity(0.5),
-                                    borderRadius: BorderRadius.circular(5),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        blurRadius: 5,
-                                        offset: const Offset(-8, 8),
-                                        color:
-                                            state.color.color.withOpacity(0.2),
-                                      ),
-                                    ]),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    const Icon(
-                                      FluentIcons.play_24_filled,
-                                      color: Colors.white,
-                                    ),
-                                    const SizedBox(height: 10),
-                                    Text(
-                                      "Episode " + (index + 1).toString(),
-                                      maxLines: 2,
-                                      style:
-                                          const TextStyle(color: Colors.white),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
+                          child: VideoEpisodeCard(
+                              boxShadowColor:
+                                  state.color.color.withOpacity(0.2),
+                              color: state.color.color.withOpacity(0.5),
+                              onTap: () {
+                                CustomNavigator().customNavigator(
+                                    context,
+                                    VideoStreamScreen(
+                                        episodeId:
+                                            detailData?.episodeId![index] ??
+                                                ""));
+                              },
+                              episodeIndex: index),
                         ),
                       ),
                     )
