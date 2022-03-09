@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:just_audio/just_audio.dart';
 import 'package:watch_anime/bloc/landing_page_cubit.dart';
 import 'package:watch_anime/bloc/landing_page_state.dart';
 import 'package:watch_anime/components/onhover_button.dart';
@@ -23,29 +22,6 @@ class NavBarElement extends StatefulWidget {
 class _NavBarElementState extends State<NavBarElement> {
   bool isHover = false;
 
-  // late AudioPlayer player;
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   player = AudioPlayer();
-  // }
-
-  // @override
-  // void dispose() {
-  //   player.dispose();
-  //   super.dispose();
-  // }
-
-  // void hoverPlayAudio() async {
-  //   await player.setAsset('assets/audio/clickAudio.mp3');
-  //   player.play();
-  // }
-
-  // void hoverExitAudio() async {
-  //   await player.stop();
-  // }
-
   @override
   Widget build(BuildContext context) {
     final provider = BlocProvider.of<LandingPageCubit>(context);
@@ -55,7 +31,6 @@ class _NavBarElementState extends State<NavBarElement> {
         return OnHoverButton(
           onHover: (value) {
             setState(() => {isHover = value});
-            // isHover ? hoverExitAudio() : hoverPlayAudio();
           },
           child: TextButton(
             style: TextButton.styleFrom(

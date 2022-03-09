@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:watch_anime/bloc/anime_cubit.dart';
 import 'package:watch_anime/bloc/landing_page_cubit.dart';
-import 'package:watch_anime/bloc/search_page_cubit.dart';
 import 'package:watch_anime/pages/SplashScreen/splash_screen.dart';
 import 'package:win_toast/win_toast.dart';
 
@@ -31,7 +30,6 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<LandingPageCubit>(create: (_) => LandingPageCubit()),
-        BlocProvider<SearchPageCubit>(create: (_) => SearchPageCubit()),
         BlocProvider<AnimeCubit>(create: (_) => AnimeCubit()),
       ],
       child: MaterialApp(

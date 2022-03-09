@@ -3,12 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:watch_anime/components/hover_card.dart';
 import 'package:watch_anime/pages/AnimeDetailsSection/anime_details_section.dart';
 import 'package:watch_anime/utils/Navigator/custom_navigator.dart';
-import '../model/search_data_model.dart';
 
-class SearchCard extends StatelessWidget {
-  final List<Anime>? data;
+import '../model/anime_list_model.dart';
 
-  const SearchCard({Key? key, this.data}) : super(key: key);
+class AnimeCard extends StatelessWidget {
+  final List<Documents>? data;
+
+  const AnimeCard({Key? key, this.data}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -24,11 +25,8 @@ class SearchCard extends StatelessWidget {
               child: HoverCard(
                 child: InkWell(
                   onTap: () {
-                    CustomNavigator().customNavigator(
-                        context,
-                        AnimeDetailSection(
-                          data: data![index],
-                        ));
+                    CustomNavigator()
+                        .customNavigator(context, const AnimeDetailSection());
                   },
                   child: Container(
                     width: 200,
@@ -40,9 +38,9 @@ class SearchCard extends StatelessWidget {
                         SizedBox(
                           height: 300,
                           child: Hero(
-                            tag: data![index].animeImage.toString(),
+                            tag: "tag",
                             child: Image.network(
-                              data?[index].animeImage ?? "",
+                              data?[index].coverImage ?? "",
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -50,7 +48,7 @@ class SearchCard extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
-                            data![index].animeTitle.toString(),
+                            data![index].titles.toString(),
                             textAlign: TextAlign.center,
                             style: const TextStyle(
                               color: Colors.white,

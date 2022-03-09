@@ -1,24 +1,24 @@
 import 'package:palette_generator/palette_generator.dart';
-import 'package:watch_anime/model/anime_details_model.dart';
+import 'package:watch_anime/model/anime_list_model.dart';
 
 class AnimeState {
-  AnimeDetailsModel animeDetailsModel;
+  AnimeListModel animeListModel;
   bool showLoading;
   PaletteColor color;
 
   AnimeState({
-    required this.animeDetailsModel,
+    required this.animeListModel,
     required this.showLoading,
     required this.color,
   });
 
   AnimeState copyWith({
-    AnimeDetailsModel? animeDetailsModel,
+    AnimeListModel? animeListModel,
     bool? showLoading,
     PaletteColor? color,
   }) {
     return AnimeState(
-        animeDetailsModel: animeDetailsModel ?? this.animeDetailsModel,
+        animeListModel: animeListModel ?? this.animeListModel,
         showLoading: showLoading ?? this.showLoading,
         color: color ?? this.color);
   }

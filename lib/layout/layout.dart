@@ -55,7 +55,7 @@ class Layout extends StatelessWidget {
                                 ? Expanded(
                                     child: pageNavbarElement
                                         .elementAt(state.selectedIndexPsition))
-                                : Flexible(child: Container()),
+                                : Container(),
                             // content
                             Expanded(
                               flex: 12,
