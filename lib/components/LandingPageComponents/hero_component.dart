@@ -13,7 +13,7 @@ class HeroComponent extends StatefulWidget {
 }
 
 class _HeroComponentState extends State<HeroComponent> {
-  final int indexNumber = 0;
+  final int indexNumber = 9;
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +62,8 @@ class _HeroComponentState extends State<HeroComponent> {
                                   color: const Color(0xffCDCED1),
                                   fontSize: FontSize.large,
                                   fontWeight: FontWeight.w500,
-                                  wordSpacing: 2),
+                                  wordSpacing: 2,
+                                  maxLines: 3),
                             },
                           ),
                           const Expanded(child: SizedBox()),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:watch_anime/components/hover_card.dart';
 import 'package:watch_anime/pages/AnimeDetailsSection/anime_details_section.dart';
 import 'package:watch_anime/utils/Navigator/custom_navigator.dart';
+import 'package:watch_anime/widgets/cached_network_image_widget.dart';
 
 import '../model/anime_list_model.dart';
 
@@ -39,10 +40,8 @@ class AnimeCard extends StatelessWidget {
                           height: 300,
                           child: Hero(
                             tag: "tag",
-                            child: Image.network(
-                              data?[index].coverImage ?? "",
-                              fit: BoxFit.cover,
-                            ),
+                            child: CachedNetworkImageWidget.cacheImage(
+                                data?[index].coverImage ?? ""),
                           ),
                         ),
                         Padding(
