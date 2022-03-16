@@ -1,5 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:watch_anime/bloc/landing_page_cubit.dart';
 import 'package:watch_anime/components/hover_card.dart';
 import 'package:watch_anime/pages/AnimeDetailsSection/anime_details_section.dart';
 import 'package:watch_anime/utils/Navigator/custom_navigator.dart';
@@ -14,6 +16,7 @@ class AnimeCardList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final provider = BlocProvider.of<LandingPageCubit>(context);
     return SizedBox(
       width: MediaQuery.of(context).size.width,
       child: Wrap(
@@ -26,9 +29,12 @@ class AnimeCardList extends StatelessWidget {
               padding: const EdgeInsets.all(10),
               child: HoverCard(
                 child: InkWell(
+                  onHover: (value) {
+                    provider.changeHoverCardIndex(index);
+                  },
                   onTap: () {
-                    CustomNavigator()
-                        .customNavigator(context, const AnimeDetailSection());
+                    // CustomNavigator()
+                    //     .customNavigator(context, const AnimeDetailSection());
                   },
                   child: Container(
                     width: 200,

@@ -31,16 +31,7 @@ class _LandingScreenState extends State<LandingScreen> {
           width: MediaQuery.of(context).size.width,
           child: Column(
             children: [
-              CarouselSlider(
-                options: CarouselOptions(height: 400.0),
-                items: [1, 2, 3, 4, 5].map((i) {
-                  return Builder(
-                    builder: (BuildContext context) {
-                      return HeroComponent(data: data);
-                    },
-                  );
-                }).toList(),
-              ),
+              HeroComponent(data: data),
               AnimeCardList(data: data),
             ],
           ),

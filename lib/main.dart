@@ -13,7 +13,7 @@ Future<void> main() async {
       companyName: "technoctat",
       productName: "watch_anime_app");
   doWhenWindowReady(() {
-    const initialSize = Size(960, 640);
+    const initialSize = Size(1100, 750);
     const windowSized = Size(1024, 640);
     appWindow.minSize = initialSize;
     appWindow.size = windowSized;
