@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:watch_anime/bloc/anime_cubit.dart';
@@ -30,7 +31,16 @@ class _LandingScreenState extends State<LandingScreen> {
           width: MediaQuery.of(context).size.width,
           child: Column(
             children: [
-              HeroComponent(data: data),
+              CarouselSlider(
+                options: CarouselOptions(height: 400.0),
+                items: [1, 2, 3, 4, 5].map((i) {
+                  return Builder(
+                    builder: (BuildContext context) {
+                      return HeroComponent(data: data);
+                    },
+                  );
+                }).toList(),
+              ),
               AnimeCardList(data: data),
             ],
           ),
