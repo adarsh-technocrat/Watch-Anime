@@ -41,6 +41,10 @@ Thanks a lot for spending your time in helping code house grow and help many dev
 
 Also, check them on ..
 
+<a href="https://github.com/adarsh-technocrat/Watch-Anime/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=adarsh-technocrat/Watch-Anime" />
+</a>
+
 ## 🙏 Support
 
 This project needs a ⭐️ from you. Don't forget to leave a star ⭐️
