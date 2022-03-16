@@ -7,10 +7,11 @@ import 'package:watch_anime/widgets/cached_network_image_widget.dart';
 
 import '../model/anime_list_model.dart';
 
-class AnimeCard extends StatelessWidget {
+class AnimeCardList extends StatelessWidget {
   final List<Documents>? data;
 
-  const AnimeCard({Key? key, this.data}) : super(key: key);
+  const AnimeCardList({Key? key, this.data}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(

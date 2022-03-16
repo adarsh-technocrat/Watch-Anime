@@ -42,7 +42,15 @@ class _NavBarState extends State<NavBar> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
+      decoration: BoxDecoration(
+        border: Border(
+          right: BorderSide(
+            color: Colors.grey.withOpacity(0.2),
+            width: 1.0,
+          ),
+        ),
+      ),
       child: Column(
         children: [
           Column(

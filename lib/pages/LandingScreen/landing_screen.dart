@@ -1,11 +1,10 @@
-import 'package:dart_vlc/dart_vlc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:watch_anime/bloc/anime_cubit.dart';
 import 'package:watch_anime/bloc/anime_state.dart';
 import 'package:watch_anime/components/LandingPageComponents/hero_component.dart';
 
-import '../../components/search_card.dart';
+import '../../components/search_card_list.dart';
 
 class LandingScreen extends StatefulWidget {
   const LandingScreen({Key? key}) : super(key: key);
@@ -32,13 +31,7 @@ class _LandingScreenState extends State<LandingScreen> {
           child: Column(
             children: [
               HeroComponent(data: data),
-              Wrap(
-                children: List.generate(
-                    10,
-                    (index) => AnimeCard(
-                          data: data,
-                        )),
-              ),
+              AnimeCardList(data: data),
             ],
           ),
         );

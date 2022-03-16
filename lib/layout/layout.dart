@@ -47,7 +47,7 @@ class Layout extends StatelessWidget {
                         child: NavBar(),
                       ),
                       Expanded(
-                        flex: 18,
+                        flex: 15,
                         child: Column(
                           children: [
                             // app bar
