@@ -1,9 +1,8 @@
 
 <h1 align="center">Watch Anime - An Anime Streaming Platform ✨️</h4>
 
-<!-- <img align="center" src="https://user-images.githubusercontent.com/47661086/142740506-c616194f-be05-48b8-9013-918fc4218523.png" width="100%"/> -->
+<img align="center" src="https://user-images.githubusercontent.com/47661086/158646722-118be527-1e9c-48e9-a811-f7101b27a0c3.png" width="100%"/>
   
-
 ### Introducing Watch Anime ✌️
 
 ## 🚀 Demo
