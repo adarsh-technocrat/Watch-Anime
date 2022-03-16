@@ -48,7 +48,7 @@ class AnimeCardList extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
-                            data![index].titles.toString(),
+                            data![index].titles!.en.toString(),
                             textAlign: TextAlign.center,
                             style: const TextStyle(
                               color: Colors.white,
