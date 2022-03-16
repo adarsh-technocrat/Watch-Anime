@@ -18,7 +18,7 @@ class _LandingScreenState extends State<LandingScreen> {
   @override
   void initState() {
     var provider = BlocProvider.of<AnimeCubit>(context);
-    provider.getAnimeList("0");
+    provider.getAnimeList("1");
     super.initState();
   }
 
@@ -32,7 +32,18 @@ class _LandingScreenState extends State<LandingScreen> {
           child: Column(
             children: [
               HeroComponent(data: data),
-              AnimeCardList(data: data),
+              SizedBox(
+                width: MediaQuery.of(context).size.width,
+                child: Wrap(
+                  alignment: WrapAlignment.start,
+                  children: List.generate(
+                      data?.length ?? 0,
+                      (index) => AnimeCard(
+                            data: data?[index],
+                            index: index,
+                          )),
+                ),
+              )
             ],
           ),
         );
