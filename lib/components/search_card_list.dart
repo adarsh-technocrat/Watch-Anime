@@ -48,6 +48,8 @@ class AnimeCard extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       data!.titles!.en.toString(),
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
                       textAlign: TextAlign.center,
                       style: const TextStyle(
                         color: Colors.white,

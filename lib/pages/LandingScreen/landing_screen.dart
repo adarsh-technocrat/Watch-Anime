@@ -37,7 +37,7 @@ class _LandingScreenState extends State<LandingScreen> {
                 child: Wrap(
                   alignment: WrapAlignment.start,
                   children: List.generate(
-                      data?.length ?? 0,
+                      7,
                       (index) => AnimeCard(
                             data: data?[index],
                             index: index,
