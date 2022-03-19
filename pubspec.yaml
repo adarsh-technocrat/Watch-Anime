@@ -33,6 +33,9 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  freezed: 1.1.0
+  dio: ^4.0.4
+  equatable: ^2.0.3
   bitsdojo_window: ^0.1.1+1
   fluentui_system_icons: ^1.1.160
   url_launcher: ^6.0.20
@@ -42,6 +45,7 @@ dependencies:
   win_toast: ^0.0.2
   http: ^0.13.4
   flutter_bloc: ^8.0.1
+  hydrated_bloc: ^8.0.0
   just_audio: ^0.9.20
   rive: ^0.8.1
   just_audio_libwinmedia: ^0.0.4

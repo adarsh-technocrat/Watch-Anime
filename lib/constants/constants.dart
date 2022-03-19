@@ -9,5 +9,6 @@ class Constants {
 
   // ********************************************************
 
-  static const String baseUrl = "https://watch-anime-v1-api.vercel.app";
+  // static const String baseUrl = "https://watch-anime-v1-api.vercel.app";
+  static const String baseUrl = "https://api.aniapi.com/v1";
 }
