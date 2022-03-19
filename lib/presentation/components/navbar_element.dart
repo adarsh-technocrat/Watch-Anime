@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:watch_anime/bloc/home_cubit/home_cubit.dart';
-import 'package:watch_anime/bloc/home_cubit/home_state.dart';
 import 'package:watch_anime/constants/constants.dart';
 import 'package:watch_anime/presentation/components/onhover_button.dart';
 
@@ -24,8 +23,8 @@ class _NavBarElementState extends State<NavBarElement> {
 
   @override
   Widget build(BuildContext context) {
-    final provider = BlocProvider.of<LandingPageCubit>(context);
-    return BlocBuilder<LandingPageCubit, LandingPageState>(
+    final provider = BlocProvider.of<HomeCubit>(context);
+    return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
         bool isSelected = state.selectedIndexPsition == widget.index;
         return OnHoverButton(

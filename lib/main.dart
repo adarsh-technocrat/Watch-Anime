@@ -29,8 +29,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<LandingPageCubit>(create: (_) => LandingPageCubit()),
-        BlocProvider<AnimeCubit>(create: (_) => AnimeCubit()),
+        BlocProvider<HomeCubit>(create: (_) => HomeCubit()),
+        // BlocProvider<AnimeCubit>(create: (_) => AnimeCubit()),
       ],
       child: MaterialApp(
           debugShowCheckedModeBanner: false,

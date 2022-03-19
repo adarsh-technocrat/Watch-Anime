@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:watch_anime/bloc/home_cubit/home_cubit.dart';
-import 'package:watch_anime/bloc/home_cubit/home_state.dart';
 import 'package:watch_anime/presentation/pages/HelpAndSupport/help_and_support.dart';
 import 'package:watch_anime/presentation/pages/LandingScreen/landing_screen.dart';
 import 'package:watch_anime/presentation/pages/SearchScreen/search_screen.dart';
@@ -21,7 +20,7 @@ class MainContentSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<LandingPageCubit, LandingPageState>(
+    return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
         return Container(child: pages.elementAt(state.selectedIndexPsition));
       },

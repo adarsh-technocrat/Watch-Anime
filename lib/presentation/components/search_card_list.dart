@@ -7,14 +7,14 @@ import 'package:watch_anime/presentation/components/hover_card.dart';
 import 'package:watch_anime/presentation/widgets/cached_network_image_widget.dart';
 
 class AnimeCard extends StatelessWidget {
-  final Documents? data;
+  final Anime? data;
   final int? index;
 
   const AnimeCard({Key? key, this.data, this.index}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final provider = BlocProvider.of<LandingPageCubit>(context);
+    final provider = BlocProvider.of<HomeCubit>(context);
     return FadeInUp(
       duration: Duration(milliseconds: index! * 100),
       child: Padding(
@@ -23,6 +23,7 @@ class AnimeCard extends StatelessWidget {
           child: InkWell(
             onHover: (value) {
               provider.changeHoverCardIndex(index!);
+              print(data);
             },
             onTap: () {
               // CustomNavigator()
@@ -39,8 +40,10 @@ class AnimeCard extends StatelessWidget {
                     height: 300,
                     child: Hero(
                       tag: "tag",
-                      child: CachedNetworkImageWidget.cacheImage(
-                          data?.coverImage ?? ""),
+                      child: data?.coverImage != null
+                          ? CachedNetworkImageWidget.cacheImage(
+                              data!.coverImage.toString())
+                          : const SizedBox(),
                     ),
                   ),
                   Padding(

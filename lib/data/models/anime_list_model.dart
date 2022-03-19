@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 class AnimeListModel {
   int? statusCode;
   String? message;
@@ -6,58 +8,64 @@ class AnimeListModel {
 
   AnimeListModel({this.statusCode, this.message, this.data, this.version});
 
-  AnimeListModel.fromJson(Map<String, dynamic> json) {
-    statusCode = json['status_code'];
-    message = json['message'];
-    data = json['data'] != null ? Data.fromJson(json['data']) : null;
-    version = json['version'];
+  Map<String, dynamic> toMap() {
+    return {
+      'statusCode': statusCode,
+      'message': message,
+      'data': data?.toMap(),
+      'version': version,
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['status_code'] = statusCode;
-    data['message'] = message;
-    if (this.data != null) {
-      data['data'] = this.data!.toJson();
-    }
-    data['version'] = version;
-    return data;
+  factory AnimeListModel.fromMap(Map<String, dynamic> map) {
+    return AnimeListModel(
+      statusCode: map['statusCode']?.toInt(),
+      message: map['message'],
+      data: map['data'] != null ? Data.fromMap(map['data']) : null,
+      version: map['version'],
+    );
   }
+
+  String toJson() => json.encode(toMap());
+
+  factory AnimeListModel.fromJson(String source) =>
+      AnimeListModel.fromMap(json.decode(source));
 }
 
 class Data {
   int? currentPage;
   int? count;
-  List<Documents>? documents;
+  List<Anime>? documents;
   int? lastPage;
 
   Data({this.currentPage, this.count, this.documents, this.lastPage});
 
-  Data.fromJson(Map<String, dynamic> json) {
-    currentPage = json['current_page'];
-    count = json['count'];
-    if (json['documents'] != null) {
-      documents = <Documents>[];
-      json['documents'].forEach((v) {
-        documents!.add(Documents.fromJson(v));
-      });
-    }
-    lastPage = json['last_page'];
+  Map<String, dynamic> toMap() {
+    return {
+      'currentPage': currentPage,
+      'count': count,
+      'documents': documents?.map((x) => x?.toMap())?.toList(),
+      'lastPage': lastPage,
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['current_page'] = currentPage;
-    data['count'] = count;
-    if (documents != null) {
-      data['documents'] = documents!.map((v) => v.toJson()).toList();
-    }
-    data['last_page'] = lastPage;
-    return data;
+  factory Data.fromMap(Map<String, dynamic> map) {
+    return Data(
+      currentPage: map['currentPage']?.toInt(),
+      count: map['count']?.toInt(),
+      documents: map['documents'] != null
+          ? List<Anime>.from(map['documents']?.map((x) => Anime.fromMap(x)))
+          : null,
+      lastPage: map['lastPage']?.toInt(),
+    );
   }
+
+  String toJson() => json.encode(toMap());
+
+  factory Data.fromJson(String source) => Data.fromMap(json.decode(source));
 }
 
-class Documents {
+class Anime {
   int? anilistId;
   int? malId;
   int? tmdbId;
@@ -85,7 +93,7 @@ class Documents {
   int? prequel;
   int? sequel;
 
-  Documents(
+  Anime(
       {this.anilistId,
       this.malId,
       this.tmdbId,
@@ -113,79 +121,77 @@ class Documents {
       this.prequel,
       this.sequel});
 
-  Documents.fromJson(Map<String, dynamic> json) {
-    anilistId = json['anilist_id'];
-    malId = json['mal_id'];
-    tmdbId = json['tmdb_id'];
-    format = json['format'];
-    status = json['status'];
-    titles =
-        json['titles'] != null ? Descriptions.fromJson(json['titles']) : null;
-    descriptions = json['descriptions'] != null
-        ? Descriptions.fromJson(json['descriptions'])
-        : null;
-    startDate = json['start_date'];
-    endDate = json['end_date'];
-    seasonPeriod = json['season_period'];
-    seasonYear = json['season_year'];
-    episodesCount = json['episodes_count'];
-    episodeDuration = json['episode_duration'];
-    coverImage = json['cover_image'];
-    coverColor = json['cover_color'];
-    bannerImage = json['banner_image'];
-    genres = json['genres'].cast<String>();
-    score = json['score'];
-    nsfw = json['nsfw'];
-    hasCoverImage = json['hasCoverImage'];
-    id = json['id'];
-    weeklyAiringDay = json['weekly_airing_day'];
-    if (json['sagas'] != null) {
-      sagas = <Sagas>[];
-      json['sagas'].forEach((v) {
-        sagas!.add(Sagas.fromJson(v));
-      });
-    }
-    trailerUrl = json['trailer_url'];
-    prequel = json['prequel'];
-    sequel = json['sequel'];
+  Map<String, dynamic> toMap() {
+    return {
+      'anilistId': anilistId,
+      'malId': malId,
+      'tmdbId': tmdbId,
+      'format': format,
+      'status': status,
+      'titles': titles?.toMap(),
+      'descriptions': descriptions?.toMap(),
+      'startDate': startDate,
+      'endDate': endDate,
+      'seasonPeriod': seasonPeriod,
+      'seasonYear': seasonYear,
+      'episodesCount': episodesCount,
+      'episodeDuration': episodeDuration,
+      'coverImage': coverImage,
+      'coverColor': coverColor,
+      'bannerImage': bannerImage,
+      'genres': genres,
+      'score': score,
+      'nsfw': nsfw,
+      'hasCoverImage': hasCoverImage,
+      'id': id,
+      'weeklyAiringDay': weeklyAiringDay,
+      'sagas': sagas?.map((x) => x?.toMap())?.toList(),
+      'trailerUrl': trailerUrl,
+      'prequel': prequel,
+      'sequel': sequel,
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['anilist_id'] = anilistId;
-    data['mal_id'] = malId;
-    data['tmdb_id'] = tmdbId;
-    data['format'] = format;
-    data['status'] = status;
-    if (titles != null) {
-      data['titles'] = titles!.toJson();
-    }
-    if (descriptions != null) {
-      data['descriptions'] = descriptions!.toJson();
-    }
-    data['start_date'] = startDate;
-    data['end_date'] = endDate;
-    data['season_period'] = seasonPeriod;
-    data['season_year'] = seasonYear;
-    data['episodes_count'] = episodesCount;
-    data['episode_duration'] = episodeDuration;
-    data['cover_image'] = coverImage;
-    data['cover_color'] = coverColor;
-    data['banner_image'] = bannerImage;
-    data['genres'] = genres;
-    data['score'] = score;
-    data['nsfw'] = nsfw;
-    data['hasCoverImage'] = hasCoverImage;
-    data['id'] = id;
-    data['weekly_airing_day'] = weeklyAiringDay;
-    if (sagas != null) {
-      data['sagas'] = sagas!.map((v) => v.toJson()).toList();
-    }
-    data['trailer_url'] = trailerUrl;
-    data['prequel'] = prequel;
-    data['sequel'] = sequel;
-    return data;
+  factory Anime.fromMap(Map<String, dynamic> map) {
+    print(map);
+    return Anime(
+      anilistId: map['anilistId']?.toInt(),
+      malId: map['malId']?.toInt(),
+      tmdbId: map['tmdbId']?.toInt(),
+      format: map['format']?.toInt(),
+      status: map['status']?.toInt(),
+      titles:
+          map['titles'] != null ? Descriptions.fromMap(map['titles']) : null,
+      descriptions: map['descriptions'] != null
+          ? Descriptions.fromMap(map['descriptions'])
+          : null,
+      startDate: map['startDate'],
+      endDate: map['endDate'],
+      seasonPeriod: map['seasonPeriod']?.toInt(),
+      seasonYear: map['seasonYear']?.toInt(),
+      episodesCount: map['episodesCount']?.toInt(),
+      episodeDuration: map['episodeDuration']?.toInt(),
+      coverImage: map['cover_image'],
+      coverColor: map['coverColor'],
+      bannerImage: map['bannerImage'],
+      genres: List<String>.from(map['genres']),
+      score: map['score']?.toInt(),
+      nsfw: map['nsfw'],
+      hasCoverImage: map['hasCoverImage'],
+      id: map['id']?.toInt(),
+      weeklyAiringDay: map['weeklyAiringDay']?.toInt(),
+      sagas: map['sagas'] != null
+          ? List<Sagas>.from(map['sagas']?.map((x) => Sagas.fromMap(x)))
+          : null,
+      trailerUrl: map['trailerUrl'],
+      prequel: map['prequel']?.toInt(),
+      sequel: map['sequel']?.toInt(),
+    );
   }
+
+  String toJson() => json.encode(toMap());
+
+  factory Anime.fromJson(String source) => Anime.fromMap(json.decode(source));
 }
 
 class Titles {
@@ -197,23 +203,29 @@ class Titles {
 
   Titles({this.rj, this.en, this.jp, this.fr, this.it});
 
-  Titles.fromJson(Map<String, dynamic> json) {
-    rj = json['rj'];
-    en = json['en'];
-    jp = json['jp'];
-    fr = json['fr'];
-    it = json['it'];
+  Map<String, dynamic> toMap() {
+    return {
+      'rj': rj,
+      'en': en,
+      'jp': jp,
+      'fr': fr,
+      'it': it,
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['rj'] = rj;
-    data['en'] = en;
-    data['jp'] = jp;
-    data['fr'] = fr;
-    data['it'] = it;
-    return data;
+  factory Titles.fromMap(Map<String, dynamic> map) {
+    return Titles(
+      rj: map['rj'],
+      en: map['en'],
+      jp: map['jp'],
+      fr: map['fr'],
+      it: map['it'],
+    );
   }
+
+  String toJson() => json.encode(toMap());
+
+  factory Titles.fromJson(String source) => Titles.fromMap(json.decode(source));
 }
 
 class Descriptions {
@@ -224,21 +236,28 @@ class Descriptions {
 
   Descriptions({this.en, this.fr, this.it, this.jp});
 
-  Descriptions.fromJson(Map<String, dynamic> json) {
-    en = json['en'];
-    fr = json['fr'];
-    it = json['it'];
-    jp = json['jp'];
+  Map<String, dynamic> toMap() {
+    return {
+      'en': en,
+      'fr': fr,
+      'it': it,
+      'jp': jp,
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['en'] = en;
-    data['fr'] = fr;
-    data['it'] = it;
-    data['jp'] = jp;
-    return data;
+  factory Descriptions.fromMap(Map<String, dynamic> map) {
+    return Descriptions(
+      en: map['en'],
+      fr: map['fr'],
+      it: map['it'],
+      jp: map['jp'],
+    );
   }
+
+  String toJson() => json.encode(toMap());
+
+  factory Descriptions.fromJson(String source) =>
+      Descriptions.fromMap(json.decode(source));
 }
 
 class Sagas {
@@ -255,28 +274,30 @@ class Sagas {
       this.episodeTo,
       this.episodesCount});
 
-  Sagas.fromJson(Map<String, dynamic> json) {
-    titles =
-        json['titles'] != null ? Descriptions.fromJson(json['titles']) : null;
-    descriptions = json['descriptions'] != null
-        ? Descriptions.fromJson(json['descriptions'])
-        : null;
-    episodeFrom = json['episode_from'];
-    episodeTo = json['episode_to'];
-    episodesCount = json['episodes_count'];
+  Map<String, dynamic> toMap() {
+    return {
+      'titles': titles?.toMap(),
+      'descriptions': descriptions?.toMap(),
+      'episodeFrom': episodeFrom,
+      'episodeTo': episodeTo,
+      'episodesCount': episodesCount,
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    if (titles != null) {
-      data['titles'] = titles!.toJson();
-    }
-    if (descriptions != null) {
-      data['descriptions'] = descriptions!.toJson();
-    }
-    data['episode_from'] = episodeFrom;
-    data['episode_to'] = episodeTo;
-    data['episodes_count'] = episodesCount;
-    return data;
+  factory Sagas.fromMap(Map<String, dynamic> map) {
+    return Sagas(
+      titles:
+          map['titles'] != null ? Descriptions.fromMap(map['titles']) : null,
+      descriptions: map['descriptions'] != null
+          ? Descriptions.fromMap(map['descriptions'])
+          : null,
+      episodeFrom: map['episodeFrom']?.toInt(),
+      episodeTo: map['episodeTo']?.toInt(),
+      episodesCount: map['episodesCount']?.toInt(),
+    );
   }
+
+  String toJson() => json.encode(toMap());
+
+  factory Sagas.fromJson(String source) => Sagas.fromMap(json.decode(source));
 }
