@@ -1,11 +1,10 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:watch_anime/bloc/landing_page_cubit.dart';
-import 'package:watch_anime/components/hover_card.dart';
-import 'package:watch_anime/widgets/cached_network_image_widget.dart';
-
-import '../model/anime_list_model.dart';
+import 'package:watch_anime/bloc/home_cubit/home_cubit.dart';
+import 'package:watch_anime/data/models/anime_list_model.dart';
+import 'package:watch_anime/presentation/components/hover_card.dart';
+import 'package:watch_anime/presentation/widgets/cached_network_image_widget.dart';
 
 class AnimeCard extends StatelessWidget {
   final Documents? data;

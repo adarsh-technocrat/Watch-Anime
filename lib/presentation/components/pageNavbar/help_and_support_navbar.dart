@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../constants/constants.dart';
+import 'package:watch_anime/constants/constants.dart';
 
 class HelpAndSupportNavbar extends StatelessWidget {
   const HelpAndSupportNavbar({Key? key}) : super(key: key);

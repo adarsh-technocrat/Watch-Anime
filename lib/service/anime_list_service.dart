@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:developer';
 import 'package:http/http.dart' as http;
 import 'package:watch_anime/constants/constants.dart';
-import 'package:watch_anime/model/anime_list_model.dart';
+import 'package:watch_anime/data/models/anime_list_model.dart';
 
 class AnimeListService {
   final String baseUrl = Constants.baseUrl;

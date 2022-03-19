@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:watch_anime/constants/constants.dart';
 
-import '../../constants/constants.dart';
-
-class SettingNavbar extends StatelessWidget {
-  const SettingNavbar({Key? key}) : super(key: key);
+class WatchLaterNavbar extends StatelessWidget {
+  const WatchLaterNavbar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +12,7 @@ class SettingNavbar extends StatelessWidget {
       title: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: const [
-          Text("Settings"),
+          Text("Watch Later"),
         ],
       ),
     );

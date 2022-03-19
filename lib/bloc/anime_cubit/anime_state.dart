@@ -1,5 +1,5 @@
 import 'package:palette_generator/palette_generator.dart';
-import 'package:watch_anime/model/anime_list_model.dart';
+import 'package:watch_anime/data/models/anime_list_model.dart';
 
 class AnimeState {
   AnimeListModel animeListModel;

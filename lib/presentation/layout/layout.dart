@@ -1,14 +1,13 @@
-import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:watch_anime/bloc/landing_page_cubit.dart';
-import 'package:watch_anime/bloc/landing_page_state.dart';
-import 'package:watch_anime/components/custom_window_appbar.dart';
-import 'package:watch_anime/components/pageNavbar/help_and_support_navbar.dart';
-import 'package:watch_anime/components/pageNavbar/search_navbar.dart';
-import 'package:watch_anime/components/pageNavbar/setting_navbar.dart';
-import 'package:watch_anime/components/pageNavbar/watch_later_navbar.dart';
+import 'package:watch_anime/bloc/home_cubit/home_cubit.dart';
+import 'package:watch_anime/bloc/home_cubit/home_state.dart';
 import 'package:watch_anime/constants/constants.dart';
+import 'package:watch_anime/presentation/components/custom_window_appbar.dart';
+import 'package:watch_anime/presentation/components/pageNavbar/help_and_support_navbar.dart';
+import 'package:watch_anime/presentation/components/pageNavbar/search_navbar.dart';
+import 'package:watch_anime/presentation/components/pageNavbar/setting_navbar.dart';
+import 'package:watch_anime/presentation/components/pageNavbar/watch_later_navbar.dart';
 
 import '../pages/NavBar/navBar.dart';
 

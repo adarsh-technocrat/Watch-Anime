@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:watch_anime/bloc/landing_page_cubit.dart';
-import 'package:watch_anime/bloc/landing_page_state.dart';
-import 'package:watch_anime/components/onhover_button.dart';
+import 'package:watch_anime/bloc/home_cubit/home_cubit.dart';
+import 'package:watch_anime/bloc/home_cubit/home_state.dart';
 import 'package:watch_anime/constants/constants.dart';
+import 'package:watch_anime/presentation/components/onhover_button.dart';
 
 class NavBarElement extends StatefulWidget {
   final Function(bool value)? onHoverCallback;

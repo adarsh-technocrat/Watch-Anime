@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:watch_anime/components/custom_window_appbar.dart';
 import 'package:watch_anime/constants/constants.dart';
+import 'package:watch_anime/presentation/components/custom_window_appbar.dart';
 
 class RoutingPageLayout extends StatelessWidget {
   final Widget child;

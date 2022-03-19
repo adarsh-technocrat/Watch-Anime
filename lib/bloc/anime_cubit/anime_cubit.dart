@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:palette_generator/palette_generator.dart';
-import 'package:watch_anime/bloc/anime_state.dart';
+import 'package:watch_anime/bloc/anime_cubit/anime_state.dart';
 import 'package:watch_anime/constants/constants.dart';
-import 'package:watch_anime/model/anime_list_model.dart';
+import 'package:watch_anime/data/models/anime_list_model.dart';
 import 'package:watch_anime/service/anime_list_service.dart';
 
 class AnimeCubit extends Cubit<AnimeState> {

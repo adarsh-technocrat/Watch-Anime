@@ -1,9 +1,8 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:watch_anime/bloc/anime_cubit.dart';
-import 'package:watch_anime/bloc/anime_state.dart';
-import 'package:watch_anime/components/LandingPageComponents/hero_component.dart';
+import 'package:watch_anime/bloc/anime_cubit/anime_cubit.dart';
+import 'package:watch_anime/bloc/anime_cubit/anime_state.dart';
+import 'package:watch_anime/presentation/components/LandingPageComponents/hero_component.dart';
 
 import '../../components/search_card_list.dart';
 

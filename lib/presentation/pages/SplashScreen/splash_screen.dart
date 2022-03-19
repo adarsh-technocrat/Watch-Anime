@@ -1,7 +1,7 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:watch_anime/constants/constants.dart';
-import 'package:watch_anime/pages/HomeScreen/home_screen.dart';
+import 'package:watch_anime/presentation/pages/HomeScreen/home_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);

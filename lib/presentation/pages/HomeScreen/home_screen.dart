@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:watch_anime/layout/layout.dart';
-import 'package:watch_anime/pages/MainContentSection/main_content_section.dart';
+import 'package:watch_anime/presentation/layout/layout.dart';
+import 'package:watch_anime/presentation/pages/MainContentSection/main_content_section.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);

@@ -2,9 +2,9 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_html/flutter_html.dart';
-import 'package:watch_anime/bloc/landing_page_cubit.dart';
-import 'package:watch_anime/bloc/landing_page_state.dart';
-import '../../model/anime_list_model.dart';
+import 'package:watch_anime/bloc/home_cubit/home_cubit.dart';
+import 'package:watch_anime/bloc/home_cubit/home_state.dart';
+import 'package:watch_anime/data/models/anime_list_model.dart';
 
 class HeroComponent extends StatefulWidget {
   final List<Documents>? data;
