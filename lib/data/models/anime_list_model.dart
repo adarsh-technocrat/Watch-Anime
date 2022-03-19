@@ -44,19 +44,19 @@ class Data {
     return {
       'currentPage': currentPage,
       'count': count,
-      'documents': documents?.map((x) => x?.toMap())?.toList(),
+      'documents': documents?.map((x) => x.toMap()).toList(),
       'lastPage': lastPage,
     };
   }
 
   factory Data.fromMap(Map<String, dynamic> map) {
     return Data(
-      currentPage: map['currentPage']?.toInt(),
+      currentPage: map['current_page']?.toInt(),
       count: map['count']?.toInt(),
       documents: map['documents'] != null
           ? List<Anime>.from(map['documents']?.map((x) => Anime.fromMap(x)))
           : null,
-      lastPage: map['lastPage']?.toInt(),
+      lastPage: map['last_page']?.toInt(),
     );
   }
 
@@ -145,7 +145,7 @@ class Anime {
       'hasCoverImage': hasCoverImage,
       'id': id,
       'weeklyAiringDay': weeklyAiringDay,
-      'sagas': sagas?.map((x) => x?.toMap())?.toList(),
+      'sagas': sagas?.map((x) => x.toMap()).toList(),
       'trailerUrl': trailerUrl,
       'prequel': prequel,
       'sequel': sequel,
@@ -153,10 +153,9 @@ class Anime {
   }
 
   factory Anime.fromMap(Map<String, dynamic> map) {
-    print(map);
     return Anime(
-      anilistId: map['anilistId']?.toInt(),
-      malId: map['malId']?.toInt(),
+      anilistId: map['anilist_id']?.toInt(),
+      malId: map['mal_id']?.toInt(),
       tmdbId: map['tmdbId']?.toInt(),
       format: map['format']?.toInt(),
       status: map['status']?.toInt(),
@@ -165,25 +164,25 @@ class Anime {
       descriptions: map['descriptions'] != null
           ? Descriptions.fromMap(map['descriptions'])
           : null,
-      startDate: map['startDate'],
-      endDate: map['endDate'],
-      seasonPeriod: map['seasonPeriod']?.toInt(),
-      seasonYear: map['seasonYear']?.toInt(),
-      episodesCount: map['episodesCount']?.toInt(),
-      episodeDuration: map['episodeDuration']?.toInt(),
+      startDate: map['start_date'],
+      endDate: map['end_date'],
+      seasonPeriod: map['season_period']?.toInt(),
+      seasonYear: map['season_year']?.toInt(),
+      episodesCount: map['episodes_count']?.toInt(),
+      episodeDuration: map['episode_duration']?.toInt(),
       coverImage: map['cover_image'],
-      coverColor: map['coverColor'],
-      bannerImage: map['bannerImage'],
+      coverColor: map['cover_color'],
+      bannerImage: map['banner_image'],
       genres: List<String>.from(map['genres']),
       score: map['score']?.toInt(),
       nsfw: map['nsfw'],
-      hasCoverImage: map['hasCoverImage'],
+      hasCoverImage: map['has_cover_image'],
       id: map['id']?.toInt(),
-      weeklyAiringDay: map['weeklyAiringDay']?.toInt(),
+      weeklyAiringDay: map['weekly_airing_day']?.toInt(),
       sagas: map['sagas'] != null
           ? List<Sagas>.from(map['sagas']?.map((x) => Sagas.fromMap(x)))
           : null,
-      trailerUrl: map['trailerUrl'],
+      trailerUrl: map['trailer_url'],
       prequel: map['prequel']?.toInt(),
       sequel: map['sequel']?.toInt(),
     );
@@ -291,9 +290,9 @@ class Sagas {
       descriptions: map['descriptions'] != null
           ? Descriptions.fromMap(map['descriptions'])
           : null,
-      episodeFrom: map['episodeFrom']?.toInt(),
-      episodeTo: map['episodeTo']?.toInt(),
-      episodesCount: map['episodesCount']?.toInt(),
+      episodeFrom: map['episode_from']?.toInt(),
+      episodeTo: map['episode_to']?.toInt(),
+      episodesCount: map['episodes_count']?.toInt(),
     );
   }
 

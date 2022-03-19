@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:watch_anime/constants/enums.dart';
+import 'package:watch_anime/enums/enums.dart';
 import 'package:watch_anime/data/models/anime_list_model.dart';
 import 'package:watch_anime/data/services/api_result.dart';
 import 'package:watch_anime/data/services/network_exceptions.dart';

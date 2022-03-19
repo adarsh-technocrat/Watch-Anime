@@ -23,7 +23,6 @@ class AnimeCard extends StatelessWidget {
           child: InkWell(
             onHover: (value) {
               provider.changeHoverCardIndex(index!);
-              print(data);
             },
             onTap: () {
               // CustomNavigator()

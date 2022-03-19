@@ -1,5 +1,3 @@
-// ignore_for_file: use_rethrow_when_possible
-
 import 'dart:io';
 
 import 'package:dio/dio.dart';
@@ -62,7 +60,7 @@ class DioClient {
     } on FormatException catch (_) {
       throw const FormatException("Unable to process the data");
     } catch (e) {
-      throw e;
+      rethrow;
     }
   }
 
@@ -89,7 +87,7 @@ class DioClient {
     } on FormatException catch (_) {
       throw const FormatException("Unable to process the data");
     } catch (e) {
-      throw e;
+      rethrow;
     }
   }
 
@@ -116,7 +114,7 @@ class DioClient {
     } on FormatException catch (_) {
       throw const FormatException("Unable to process the data");
     } catch (e) {
-      throw e;
+      rethrow;
     }
   }
 
@@ -139,7 +137,7 @@ class DioClient {
     } on FormatException catch (_) {
       throw const FormatException("Unable to process the data");
     } catch (e) {
-      throw e;
+      rethrow;
     }
   }
 }

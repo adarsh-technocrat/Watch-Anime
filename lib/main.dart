@@ -1,7 +1,6 @@
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:watch_anime/bloc/anime_cubit/anime_cubit.dart';
 import 'package:watch_anime/bloc/home_cubit/home_cubit.dart';
 import 'package:watch_anime/presentation/pages/SplashScreen/splash_screen.dart';
 import 'package:win_toast/win_toast.dart';
@@ -30,7 +29,6 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<HomeCubit>(create: (_) => HomeCubit()),
-        // BlocProvider<AnimeCubit>(create: (_) => AnimeCubit()),
       ],
       child: MaterialApp(
           debugShowCheckedModeBanner: false,
