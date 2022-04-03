@@ -40,21 +40,16 @@ dependencies:
   fluentui_system_icons: ^1.1.160
   url_launcher: ^6.0.20
   animations: ^2.0.2
-  animate_do: ^2.1.0
-  lottie: ^1.2.2
   win_toast: ^0.0.2
   flutter_bloc: ^8.0.1
   hydrated_bloc: ^8.0.0
-  just_audio: ^0.9.20
   rive: ^0.8.1
-  just_audio_libwinmedia: ^0.0.4
   palette_generator: ^0.3.3
   shimmer: ^2.0.0
   flutter_rating_bar: ^4.0.0
   dart_vlc: ^0.1.8
   cached_network_image: ^3.2.0
   flutter_html: ^3.0.0-alpha.2
-  infinite_scroll_pagination: ^3.1.0
   carousel_slider: ^4.0.0
 
 dev_dependencies:
@@ -95,33 +90,50 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Lato
+    - family: Poppins
       fonts:
-        - asset: assets/fonts/Lato-Thin.ttf
+        - asset: assets/fonts/Poppins/Poppins-Black.ttf
+        - asset: assets/fonts/Poppins/Poppins-BlackItalic.ttf
+          style: italic
+        - asset: assets/fonts/Poppins/Poppins-Thin.ttf
           weight: 100
-        - asset: assets/fonts/Lato-ThinItalic.ttf
-          style: italic
+        - asset: assets/fonts/Poppins/Poppins-ThinItalic.ttf
           weight: 100
-        - asset: assets/fonts/Lato-Light.ttf
+          style: italic
+        - asset: assets/fonts/Poppins/Poppins-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/Poppins/Poppins-ExtraLightItalic.ttf
+          weight: 200
+          style: italic
+        - asset: assets/fonts/Poppins/Poppins-Italic.ttf
+          style: italic
+        - asset: assets/fonts/Poppins/Poppins-Light.ttf
           weight: 300
-        - asset: assets/fonts/Lato-LightItalic.ttf
-          style: italic
+        - asset: assets/fonts/Poppins/Poppins-LightItalic.ttf
           weight: 300
-        - asset: assets/fonts/Lato-Regular.ttf
+          style: italic
+        - asset: assets/fonts/Poppins/Poppins-Regular.ttf
           weight: 400
-        - asset: assets/fonts/Lato-Italic.ttf
+        - asset: assets/fonts/Poppins/Poppins-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Poppins/Poppins-MediumItalic.ttf
+          weight: 500
           style: italic
-          weight: 400
-        - asset: assets/fonts/Lato-Bold.ttf
+        - asset: assets/fonts/Poppins/Poppins-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Poppins/Poppins-SemiBoldItalic.ttf
+          weight: 600
+          style: italic
+        - asset: assets/fonts/Poppins/Poppins-Bold.ttf
           weight: 700
-        - asset: assets/fonts/Lato-BoldItalic.ttf
-          style: italic
+        - asset: assets/fonts/Poppins/Poppins-BoldItalic.ttf
           weight: 700
-        - asset: assets/fonts/Lato-Black.ttf
-          weight: 900
-        - asset: assets/fonts/Lato-BlackItalic.ttf
           style: italic
-          weight: 900
+        - asset: assets/fonts/Poppins/Poppins-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/Poppins/Poppins-ExtraBoldItalic.ttf
+          weight: 800
+          style: italic
 
   #
   # For details regarding fonts from package dependencies,

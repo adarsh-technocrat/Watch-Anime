@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
           title: 'Watch Anime',
           theme: ThemeData(
             primarySwatch: Colors.blueGrey,
-            fontFamily: "Lato",
+            fontFamily: "Poppins",
           ),
           home: const SplashScreen()),
     );

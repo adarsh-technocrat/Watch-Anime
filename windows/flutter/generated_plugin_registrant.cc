@@ -8,7 +8,6 @@
 
 #include <bitsdojo_window_windows/bitsdojo_window_plugin.h>
 #include <dart_vlc/dart_vlc_plugin.h>
-#include <libwinmedia/libwinmedia_plugin.h>
 #include <url_launcher_windows/url_launcher_windows.h>
 #include <win_toast/win_toast_plugin.h>
 
@@ -17,8 +16,6 @@ void RegisterPlugins(flutter::PluginRegistry* registry) {
       registry->GetRegistrarForPlugin("BitsdojoWindowPlugin"));
   DartVlcPluginRegisterWithRegistrar(
       registry->GetRegistrarForPlugin("DartVlcPlugin"));
-  LibwinmediaPluginRegisterWithRegistrar(
-      registry->GetRegistrarForPlugin("LibwinmediaPlugin"));
   UrlLauncherWindowsRegisterWithRegistrar(
       registry->GetRegistrarForPlugin("UrlLauncherWindows"));
   WinToastPluginRegisterWithRegistrar(
