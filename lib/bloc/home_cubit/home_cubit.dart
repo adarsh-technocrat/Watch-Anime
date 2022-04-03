@@ -13,30 +13,36 @@ class HomeCubit extends Cubit<HomeState> {
 
   HomeCubit() : super(const HomeState());
 
+  List<Anime> anime = [];
+
   void changeScreenIndex(int index) {
     emit(state.copyWith(selectedIndexPsition: index));
   }
 
-  void changeHoverCardIndex(int index) {
-    emit(state.copyWith(hoverCardIndex: index));
-  }
-
   void onEnter(bool isHovered) => emit(state.copyWith(onHover: isHovered));
 
-  void getAnimeList(int pageNumber) async {
-    emit(state.copyWith(status: Status.loading));
+  void getAnimeList() async {
+    if (state.pageNumber == 0) {
+      emit(state.copyWith(status: Status.loading));
+    }
+
     ApiResult<AnimeListModel> animeListResponse =
-        await homeRepository.getAnimeList(pageNumber);
+        await homeRepository.getAnimeList(state.pageNumber);
     animeListResponse.when(success: (AnimeListModel animeListResponse) {
+      anime.addAll(animeListResponse.data?.documents as List<Anime>);
       emit(state.copyWith(
         status: Status.success,
         message: animeListResponse.message,
-        animeList: animeListResponse.data?.documents,
+        animeList: anime,
       ));
+      emit(state.copyWith(pageNumber: state.pageNumber + 1));
     }, failure: (NetworkExceptions error) {
-      emit(state.copyWith(
+      emit(
+        state.copyWith(
           status: Status.failure,
-          message: NetworkExceptions.getErrorMessage(error)));
+          message: NetworkExceptions.getErrorMessage(error),
+        ),
+      );
     });
   }
 }

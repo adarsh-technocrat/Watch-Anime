@@ -21,7 +21,7 @@ class _HeroComponentState extends State<HeroComponent> {
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
         if (state.status == Status.success) {
-          var data = widget.data?[state.hoverCardIndex];
+          var data = widget.data?[0];
           return Padding(
             padding:
                 const EdgeInsets.only(left: 5, right: 20, bottom: 20, top: 10),

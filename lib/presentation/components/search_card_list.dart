@@ -1,10 +1,10 @@
-import 'package:animate_do/animate_do.dart';
+import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:watch_anime/bloc/home_cubit/home_cubit.dart';
 import 'package:watch_anime/data/models/anime_list_model.dart';
 import 'package:watch_anime/presentation/components/hover_card.dart';
 import 'package:watch_anime/presentation/widgets/cached_network_image_widget.dart';
+
+import '../../utils/replace_null_title.dart';
 
 class AnimeCard extends StatelessWidget {
   final Anime? data;
@@ -14,29 +14,21 @@ class AnimeCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final provider = BlocProvider.of<HomeCubit>(context);
-    return FadeInUp(
-      duration: Duration(milliseconds: index! * 100),
+    final size = MediaQuery.of(context).size;
+    return InkWell(
+      onTap: () {},
       child: Padding(
         padding: const EdgeInsets.all(10),
         child: HoverCard(
-          child: InkWell(
-            onHover: (value) {
-              provider.changeHoverCardIndex(index!);
-            },
-            onTap: () {
-              // CustomNavigator()
-              //     .customNavigator(context, const AnimeDetailSection());
-            },
-            child: Container(
-              width: 184,
-              decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.2),
-              ),
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: 300,
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.black.withOpacity(0.2),
+            ),
+            child: Column(
+              children: [
+                Flexible(
+                  child: SizedBox(
+                    width: size.width,
                     child: Hero(
                       tag: "tag",
                       child: data?.coverImage != null
@@ -45,20 +37,31 @@ class AnimeCard extends StatelessWidget {
                           : const SizedBox(),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      data!.titles!.en.toString(),
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 1,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        color: Colors.white,
+                ),
+                ClipRect(
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+                    child: Container(
+                      width: size.width,
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.2),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          replaceNullTitle(data),
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
                       ),
                     ),
-                  )
-                ],
-              ),
+                  ),
+                )
+              ],
             ),
           ),
         ),
