@@ -6,6 +6,7 @@ class Constants {
   static const Color kLightBlack = Color(0xff334851);
   static const Color kLightGrayColor = Color(0xff999A9A);
   static const Color klightTextColor = Color(0xffCDCED1);
+  static const Color kheroSectionColor = Color(0xff040B17);
 
   // ********************************************************
 

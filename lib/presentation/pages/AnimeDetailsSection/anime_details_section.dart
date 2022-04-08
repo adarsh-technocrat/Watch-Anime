@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:watch_anime/data/models/anime_list_model.dart';
+import 'package:watch_anime/presentation/components/AnimeDetailsSectionComponent/detail_hero_section.dart';
 
 class AnimeDetailSection extends StatefulWidget {
-  const AnimeDetailSection({Key? key}) : super(key: key);
+  final Anime data;
+
+  const AnimeDetailSection({Key? key, required this.data}) : super(key: key);
 
   @override
   State<AnimeDetailSection> createState() => _AnimeDetailSectionState();
@@ -10,6 +14,13 @@ class AnimeDetailSection extends StatefulWidget {
 class _AnimeDetailSectionState extends State<AnimeDetailSection> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return SizedBox(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          DetailHeroSection(data: widget.data),
+        ],
+      ),
+    );
   }
 }

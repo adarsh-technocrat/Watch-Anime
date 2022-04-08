@@ -2,7 +2,9 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:watch_anime/data/models/anime_list_model.dart';
 import 'package:watch_anime/presentation/components/hover_card.dart';
+import 'package:watch_anime/presentation/pages/AnimeDetailsSection/anime_details_section.dart';
 import 'package:watch_anime/presentation/widgets/cached_network_image_widget.dart';
+import 'package:watch_anime/utils/Navigator/custom_navigator.dart';
 
 import '../../utils/replace_null_title.dart';
 
@@ -16,7 +18,10 @@ class AnimeCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        CustomNavigator()
+            .customNavigator(context, AnimeDetailSection(data: data!));
+      },
       child: Padding(
         padding: const EdgeInsets.all(10),
         child: HoverCard(
@@ -27,10 +32,10 @@ class AnimeCard extends StatelessWidget {
             child: Column(
               children: [
                 Flexible(
-                  child: SizedBox(
-                    width: size.width,
-                    child: Hero(
-                      tag: "tag",
+                  child: Hero(
+                    tag: data!.coverImage!,
+                    child: SizedBox(
+                      width: size.width,
                       child: data?.coverImage != null
                           ? CachedNetworkImageWidget.cacheImage(
                               data!.coverImage.toString())
