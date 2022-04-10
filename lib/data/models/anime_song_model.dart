@@ -28,18 +28,18 @@ class AnimeSongsModel {
 class Data {
   int? currentPage;
   int? count;
-  List<Documents>? documents;
+  List<SongDocument>? songDocument;
   int? lastPage;
 
-  Data({this.currentPage, this.count, this.documents, this.lastPage});
+  Data({this.currentPage, this.count, this.songDocument, this.lastPage});
 
   Data.fromJson(Map<String, dynamic> json) {
     currentPage = json['current_page'];
     count = json['count'];
     if (json['documents'] != null) {
-      documents = <Documents>[];
+      songDocument = <SongDocument>[];
       json['documents'].forEach((v) {
-        documents!.add(Documents.fromJson(v));
+        songDocument!.add(SongDocument.fromJson(v));
       });
     }
     lastPage = json['last_page'];
@@ -49,15 +49,15 @@ class Data {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['current_page'] = currentPage;
     data['count'] = count;
-    if (documents != null) {
-      data['documents'] = documents!.map((v) => v.toJson()).toList();
+    if (songDocument != null) {
+      data['documents'] = songDocument!.map((v) => v.toJson()).toList();
     }
     data['last_page'] = lastPage;
     return data;
   }
 }
 
-class Documents {
+class SongDocument {
   int? animeId;
   String? title;
   String? artist;
@@ -71,7 +71,7 @@ class Documents {
   int? type;
   int? id;
 
-  Documents(
+  SongDocument(
       {this.animeId,
       this.title,
       this.artist,
@@ -85,7 +85,7 @@ class Documents {
       this.type,
       this.id});
 
-  Documents.fromJson(Map<String, dynamic> json) {
+  SongDocument.fromJson(Map<String, dynamic> json) {
     animeId = json['anime_id'];
     title = json['title'];
     artist = json['artist'];

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:watch_anime/data/models/anime_episode_list.dart';
 import 'package:watch_anime/data/models/anime_list_model.dart';
+import 'package:watch_anime/data/models/anime_song_model.dart';
 import 'package:watch_anime/data/services/api_result.dart';
 import 'package:watch_anime/data/services/dio_client.dart';
 import 'package:watch_anime/data/services/network_exceptions.dart';
@@ -30,6 +31,17 @@ class HomeRepository {
       AnimeEpisodeModel animeEpisodeModel =
           AnimeEpisodeModel.fromJson(response);
       return ApiResult.success(data: animeEpisodeModel);
+    } catch (e) {
+      return ApiResult.failure(error: NetworkExceptions.getDioException(e));
+    }
+  }
+
+  Future<ApiResult<AnimeSongsModel>> getAnimeSong(int animeID) async {
+    try {
+      final response = await dioClient
+          .get("/song", queryParameters: {"anime_id": animeID.toString()});
+      AnimeSongsModel animeSongsModel = AnimeSongsModel.fromJson(response);
+      return ApiResult.success(data: animeSongsModel);
     } catch (e) {
       return ApiResult.failure(error: NetworkExceptions.getDioException(e));
     }
