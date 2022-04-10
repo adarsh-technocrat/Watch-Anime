@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:watch_anime/constants/constants.dart';
 import 'package:watch_anime/data/models/anime_list_model.dart';
 import 'package:watch_anime/presentation/components/AnimeDetailsSectionComponent/anime_song_list.dart';
 

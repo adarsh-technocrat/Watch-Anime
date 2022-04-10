@@ -20,8 +20,8 @@ class AnimeCard extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return InkWell(
       onTap: () {
-        CustomNavigator().customNavigator(context,
-            SingleChildScrollView(child: AnimeDetailSection(data: data!)));
+        CustomNavigator()
+            .customNavigator(context, AnimeDetailSection(data: data!));
       },
       child: Padding(
         padding: const EdgeInsets.all(10),
