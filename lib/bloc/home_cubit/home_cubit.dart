@@ -2,6 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:watch_anime/data/models/anime_episode_list.dart';
+import 'package:watch_anime/data/models/anime_song_model.dart';
 import 'package:watch_anime/enums/enums.dart';
 import 'package:watch_anime/data/models/anime_list_model.dart';
 import 'package:watch_anime/data/services/api_result.dart';
@@ -66,6 +67,18 @@ class HomeCubit extends Cubit<HomeState> {
       //     message: NetworkExceptions.getErrorMessage(error),
       //   ),
       // );
+    });
+  }
+
+  void getAnimeSongs(int animeID) async {
+    ApiResult<AnimeSongsModel> animeSongResponse =
+        await homeRepository.getAnimeSong(animeID);
+
+    animeSongResponse.when(success: (AnimeSongsModel animeSongsModel) {
+      emit(state.copyWith(
+          animeSongPlayList: animeSongsModel.data!.songDocument));
+    }, failure: (NetworkExceptions error) {
+      debugPrint(error.toString());
     });
   }
 }

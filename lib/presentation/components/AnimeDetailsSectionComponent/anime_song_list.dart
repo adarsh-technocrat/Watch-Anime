@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:watch_anime/constants/constants.dart';
+import 'package:watch_anime/data/models/anime_song_model.dart';
 
 class AnimeSongList extends StatefulWidget {
+  final SongDocument songData;
+
   const AnimeSongList({
     Key? key,
+    required this.songData,
   }) : super(key: key);
 
   @override
@@ -30,6 +34,7 @@ class _AnimeSongListState extends State<AnimeSongList> {
             height: 80,
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(5)),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Padding(
@@ -53,15 +58,15 @@ class _AnimeSongListState extends State<AnimeSongList> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
-                      "Movement of the Unknown",
-                      style: TextStyle(
+                    Text(
+                      widget.songData.title.toString(),
+                      style: const TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w500,
                           fontSize: 18),
                     ),
                     Text(
-                      "WILLIAM CLAESON",
+                      widget.songData.artist.toString(),
                       style: TextStyle(
                           color: Colors.white.withOpacity(0.7),
                           fontWeight: FontWeight.w500,
@@ -71,33 +76,42 @@ class _AnimeSongListState extends State<AnimeSongList> {
                 ),
                 Expanded(
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        "COWBOY BEBOP Vitaminless",
+                        widget.songData.album.toString(),
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
                         style: TextStyle(
                             color: Colors.white.withOpacity(0.7),
                             fontWeight: FontWeight.w500,
                             fontSize: 14),
                       ),
+                      const SizedBox(width: 60),
                       Text(
-                        "WILLIAM CLAESON",
+                        widget.songData.year.toString(),
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
                         style: TextStyle(
                             color: Colors.white.withOpacity(0.7),
                             fontWeight: FontWeight.w500,
                             fontSize: 14),
                       ),
+                      const SizedBox(width: 60),
                       Text(
-                        "13:5",
+                        getDutationValue(),
                         style: TextStyle(
                             color: Colors.white.withOpacity(0.7),
                             fontWeight: FontWeight.w500,
                             fontSize: 14),
                       ),
+                      const SizedBox(width: 60),
                       IconButton(
                         onPressed: () {},
                         icon: Image.asset("assets/images/174872.png"),
                       ),
+                      const SizedBox(width: 50),
                       IconButton(
                         onPressed: () {},
                         icon: const Icon(
@@ -105,6 +119,7 @@ class _AnimeSongListState extends State<AnimeSongList> {
                           color: Colors.white,
                         ),
                       ),
+                      const SizedBox(width: 20),
                     ],
                   ),
                 ),
@@ -114,5 +129,19 @@ class _AnimeSongListState extends State<AnimeSongList> {
         ),
       ),
     );
+  }
+
+  String getDutationValue() {
+    String duration = "";
+    var durationvalue =
+        Duration(milliseconds: int.parse(widget.songData.duration.toString()))
+            .abs()
+            .toString()
+            .split(":");
+
+    var minutes = durationvalue[1];
+    var seconds = double.parse(durationvalue[2]).round();
+    duration = "$minutes : $seconds";
+    return duration;
   }
 }
