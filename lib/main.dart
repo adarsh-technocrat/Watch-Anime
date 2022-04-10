@@ -1,4 +1,5 @@
 import 'package:bitsdojo_window/bitsdojo_window.dart';
+import 'package:dart_vlc/dart_vlc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:watch_anime/bloc/home_cubit/home_cubit.dart';
@@ -11,6 +12,7 @@ Future<void> main() async {
       appName: "watch_anime",
       companyName: "technoctat",
       productName: "watch_anime_app");
+  DartVLC.initialize();
   doWhenWindowReady(() {
     const initialSize = Size(1100, 750);
     const windowSized = Size(1024, 640);
