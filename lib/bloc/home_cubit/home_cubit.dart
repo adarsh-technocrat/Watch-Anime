@@ -1,5 +1,7 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:watch_anime/data/models/anime_episode_list.dart';
 import 'package:watch_anime/enums/enums.dart';
 import 'package:watch_anime/data/models/anime_list_model.dart';
 import 'package:watch_anime/data/services/api_result.dart';
@@ -43,6 +45,27 @@ class HomeCubit extends Cubit<HomeState> {
           message: NetworkExceptions.getErrorMessage(error),
         ),
       );
+    });
+  }
+
+  void getAnimeAnimeEpisode(int animeID) async {
+    ApiResult<AnimeEpisodeModel> animeEpisodeResponse =
+        await homeRepository.getAnimeEpisode(animeID);
+    animeEpisodeResponse.when(success: (AnimeEpisodeModel animeEpisodeModel) {
+      emit(state.copyWith(
+        // status: Status.success,
+        // message: animeEpisodeModel.message,
+        animeEpisodesList: animeEpisodeModel.data!.documents as List<Documents>,
+      ));
+      emit(state.copyWith(pageNumber: state.pageNumber + 1));
+    }, failure: (NetworkExceptions error) {
+      debugPrint(error.toString());
+      // emit(
+      //   state.copyWith(
+      //     status: Status.failure,
+      //     message: NetworkExceptions.getErrorMessage(error),
+      //   ),
+      // );
     });
   }
 }

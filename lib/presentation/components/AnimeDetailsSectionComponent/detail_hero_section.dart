@@ -14,6 +14,8 @@ class DetailHeroSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    String color = "0xff${data.coverColor.toString().split("#")[1]}";
+
     return Container(
       height: size.height / 1.8,
       color: Constants.kheroSectionColor,
@@ -85,7 +87,7 @@ class DetailHeroSection extends StatelessWidget {
                             children: [
                               TextButton(
                                 style: TextButton.styleFrom(
-                                    backgroundColor: Constants.kPurpleColoe,
+                                    backgroundColor: Color(int.parse(color)),
                                     padding: const EdgeInsets.all(18)),
                                 onPressed: () {},
                                 child: Row(
@@ -132,6 +134,15 @@ class DetailHeroSection extends StatelessWidget {
                                 onPressed: () {},
                                 icon: const Icon(
                                   Icons.add_to_photos,
+                                  size: 30,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              const SizedBox(width: 20),
+                              IconButton(
+                                onPressed: () {},
+                                icon: const Icon(
+                                  Icons.thumb_up_alt_outlined,
                                   size: 30,
                                   color: Colors.white,
                                 ),

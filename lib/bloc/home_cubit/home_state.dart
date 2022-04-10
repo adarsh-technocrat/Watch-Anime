@@ -7,15 +7,16 @@ class HomeState extends Equatable {
   final String message;
   final List<Anime> animeList;
   final int pageNumber;
+  final List<Documents> animeEpisodesList;
 
-  const HomeState({
-    this.status = Status.initial,
-    this.message = "",
-    this.selectedIndexPsition = 0,
-    this.onHover = false,
-    this.animeList = const [],
-    this.pageNumber = 1,
-  });
+  const HomeState(
+      {this.status = Status.initial,
+      this.message = "",
+      this.selectedIndexPsition = 0,
+      this.onHover = false,
+      this.animeList = const [],
+      this.pageNumber = 1,
+      this.animeEpisodesList = const []});
 
   HomeState copyWith({
     int? selectedIndexPsition,
@@ -25,15 +26,16 @@ class HomeState extends Equatable {
     String? message,
     List<Anime>? animeList,
     int? pageNumber,
+    List<Documents>? animeEpisodesList,
   }) {
     return HomeState(
-      status: status ?? this.status,
-      message: message ?? this.message,
-      selectedIndexPsition: selectedIndexPsition ?? this.selectedIndexPsition,
-      onHover: onHover ?? this.onHover,
-      animeList: animeList ?? this.animeList,
-      pageNumber: pageNumber ?? this.pageNumber,
-    );
+        status: status ?? this.status,
+        message: message ?? this.message,
+        selectedIndexPsition: selectedIndexPsition ?? this.selectedIndexPsition,
+        onHover: onHover ?? this.onHover,
+        animeList: animeList ?? this.animeList,
+        pageNumber: pageNumber ?? this.pageNumber,
+        animeEpisodesList: animeEpisodesList ?? this.animeEpisodesList);
   }
 
   @override
@@ -44,5 +46,6 @@ class HomeState extends Equatable {
         message,
         animeList,
         pageNumber,
+        animeEpisodesList,
       ];
 }

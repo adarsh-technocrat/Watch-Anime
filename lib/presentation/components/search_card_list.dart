@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:watch_anime/constants/constants.dart';
 import 'package:watch_anime/data/models/anime_list_model.dart';
 import 'package:watch_anime/presentation/components/hover_card.dart';
 import 'package:watch_anime/presentation/pages/AnimeDetailsSection/anime_details_section.dart';
@@ -19,8 +20,8 @@ class AnimeCard extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return InkWell(
       onTap: () {
-        CustomNavigator()
-            .customNavigator(context, AnimeDetailSection(data: data!));
+        CustomNavigator().customNavigator(context,
+            SingleChildScrollView(child: AnimeDetailSection(data: data!)));
       },
       child: Padding(
         padding: const EdgeInsets.all(10),
@@ -49,8 +50,7 @@ class AnimeCard extends StatelessWidget {
                     child: Container(
                       width: size.width,
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
-                      ),
+                          color: Constants.kPurpleColoe.withOpacity(0.2)),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
