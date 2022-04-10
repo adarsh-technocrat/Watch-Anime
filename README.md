@@ -4,7 +4,10 @@
 <img align="center" src="https://user-images.githubusercontent.com/47661086/158646722-118be527-1e9c-48e9-a811-f7101b27a0c3.png" width="100%"/>
 </br>
 <img align="center" src="https://user-images.githubusercontent.com/47661086/162567918-d8a7ef7f-a153-4bc6-aaa1-d75f6e0a5792.png" width="100%"/>
+</br>
+<img align="center" src="https://user-images.githubusercontent.com/47661086/162614091-7c21ce17-e77c-436f-b755-83895fa3fab6.png" width="100%"/>
   
+
 ### Introducing Watch Anime ✌️
 
 ## 🚀 Demo
