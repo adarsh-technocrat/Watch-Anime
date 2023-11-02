@@ -35,11 +35,6 @@ This project is licensed under the MIT License - see the [`LICENSE`](https://git
 - Twitter: [@adarshKumar865](https://twitter.com/adarshKumar865)
 - Github: [@adarsh-technocrat](https://github.com/adarsh-technocrat)
 
-### 👤 Kushan Chatterjee
-
-- Twitter: [@kushan_1411](https://twitter.com/kushan_1411)
-- Github: [@kushan-developer](https://github.com/kushan-developer)
-
 ## 💪 Thanks to the all Contributors
 
 Thanks a lot for spending your time in helping code house grow and help many developers. Thanks a lot! Keep rocking 🍻
